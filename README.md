@@ -51,6 +51,9 @@ So for example, if you want to build the development version of the kernel you w
 
 ```
 sudo make KERN_CONFIG=DEVELOPMENT
+
+# or a more complex make command example for xnu-3248.60.10
+sudo make KERN_CONFIG=DEVELOPMENT ARCH_CONFIGS=X86_64 SDKROOT=$PWD/build/sdk/MacOSX10.11-xnu.sdk RC_CFLAGS="-Wno-deprecated-declarations -Wno-pointer-bool-conversion -I$PWD/externals/xnu/src/libkern" -j8
 ```
 
 It’s also important to note that the `Makefile` will use the latest version of the Mac OS X SDK as installed by Xcode (in the example above it would be `MacOSX10.11`). So make sure that you have the latest version of Xcode installed and the latest SDK available under `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/` or wherever you have Xcode installed.
